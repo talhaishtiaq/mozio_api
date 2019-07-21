@@ -11,6 +11,10 @@ from django_filters import rest_framework as filters
 class ProviderViewset(viewsets.ModelViewSet):
     queryset = Provider.objects.all()
     serializer_class = serializers.ProviderSerializer
+    # http_method_names = ['get', 'post', 'head', 'put']
+
+    # def update(self, request, pk=None):
+    #     pass
 
 class JeojsonViewset(viewsets.ModelViewSet):
     queryset = Jeojson.objects.all()

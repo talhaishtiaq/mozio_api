@@ -26,4 +26,3 @@ class JeojsonViewset(viewsets.ModelViewSet):
     #         filter_backends = (filters.DjangoFilterBackend,)
     #         filter_fields = ('jeojson',lat_lng)
     #     return queryset
-    

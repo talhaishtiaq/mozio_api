@@ -17,7 +17,7 @@ class JeojsonViewset(viewsets.ModelViewSet):
     serializer_class = serializers.JeojsonSerializer
     # filter_backends = (filters.DjangoFilterBackend,)
     # filter_fields = ('lat_lng')
-    # 
+    #
     # def get_queryset(self):
     #     queryset = Jeojson.objects.all()
     #     lat_lng = self.request.query_params.get('lat_lng')
@@ -26,3 +26,4 @@ class JeojsonViewset(viewsets.ModelViewSet):
     #         filter_backends = (filters.DjangoFilterBackend,)
     #         filter_fields = ('jeojson',lat_lng)
     #     return queryset
+    

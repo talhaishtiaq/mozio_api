@@ -5,7 +5,7 @@ from rest_framework import viewsets
 from .models import Provider, Jeojson
 from .serializers import ProviderSerializer, JeojsonSerializer
 from . import serializers
-from django_filters import rest_framework as filters
+
 
 
 class ProviderViewset(viewsets.ModelViewSet):

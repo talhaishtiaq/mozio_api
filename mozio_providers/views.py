@@ -11,10 +11,7 @@ from django_filters import rest_framework as filters
 class ProviderViewset(viewsets.ModelViewSet):
     queryset = Provider.objects.all()
     serializer_class = serializers.ProviderSerializer
-    # http_method_names = ['get', 'post', 'head', 'put']
 
-    # def update(self, request, pk=None):
-    #     pass
 
 class JeojsonViewset(viewsets.ModelViewSet):
     queryset = Jeojson.objects.all()
@@ -31,8 +28,10 @@ class JeojsonViewset(viewsets.ModelViewSet):
         lng = int(lng)
         polygons = []
         for polygon in queryset:
-            jeojson = json.loads(polygon.jeojson)
+            jeojson = polygon.jeojson
             flag = False
+            if isinstance(jeojson, str) == True:
+                jeojson = json.loads(polygon.jeojson)
             for obj in jeojson:
                 if obj['lat'] == lat and obj['lng']== lng:
                     flag = True

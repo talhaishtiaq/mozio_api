@@ -15,14 +15,23 @@ class ProviderViewset(viewsets.ModelViewSet):
 class JeojsonViewset(viewsets.ModelViewSet):
     queryset = Jeojson.objects.all()
     serializer_class = serializers.JeojsonSerializer
-    # filter_backends = (filters.DjangoFilterBackend,)
-    # filter_fields = ('lat_lng')
-    #
-    # def get_queryset(self):
-    #     queryset = Jeojson.objects.all()
-    #     lat_lng = self.request.query_params.get('lat_lng')
-    #     print(json.loads(lat_lng))
-    #     if lat_lng:
-    #         filter_backends = (filters.DjangoFilterBackend,)
-    #         filter_fields = ('jeojson',lat_lng)
-    #     return queryset
+
+
+    def get_queryset(self):
+        queryset = super().get_queryset()
+        lat = self.request.query_params.get('lat', None)
+        lng = self.request.query_params.get('lng', None)
+        if lat == None or lng == None:
+            return queryset
+        lat = int(lat)
+        lng = int(lng)
+        polygons = []
+        for polygon in queryset:
+            jeojson = json.loads(polygon.jeojson)
+            flag = False
+            for obj in jeojson:
+                if obj['lat'] == lat and obj['lng']== lng:
+                    flag = True
+            if flag == True:
+                polygons.append(polygon)
+        return polygons

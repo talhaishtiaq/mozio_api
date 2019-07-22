@@ -39,4 +39,28 @@ http://localhost:8000/api/v1/jeojsons/?lat=1009&lng=1010
 
 this will return all the polygons that contain lat=1009 and lng=1010 in their jeojson structure
 
+## Deployment
+
+The API is deployed on the folowing host and can be accessed to perrform CRUD and searching:
+
+http://hosting12345.pythonanywhere.com/api/v1/
+
+
+## Developent
+
+API is using defaut Django file structure and routes.
+
+VIEWSETS are implenented in mozio_providers/views.py.
+
+To modify any of the CRUD fuctionality just add a function for it in the VIEWSET class.
+
+## Database
+
+Database is sqlite and defined in mozio_api/settings.py
+
+Tables are there in mozio_providers/models.py and can be changed and saved via migrations
+
+## Testing 
+
+Tests for CRUD and seaarching are ther in  mozio_providers/tests.py
 

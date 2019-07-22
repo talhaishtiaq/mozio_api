@@ -1,5 +1,5 @@
 # mozio_api 
-Mozio API is a Python Django  API for CRUD opertiions of providers polygon jeojsons
+Mozio API is a Python Django  API for CRUD opertiions of providers and polygon jeojsons
 
 ## Installation
 

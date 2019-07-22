@@ -24,6 +24,9 @@ class JeojsonViewset(viewsets.ModelViewSet):
         lng = self.request.query_params.get('lng', None)
         if lat == None or lng == None:
             return queryset
+
+# Searching json string in json string can be used for fast operation but can create qouting problem
+# not possible without strict input rules of jeojson
         lat = int(lat)
         lng = int(lng)
         polygons = []

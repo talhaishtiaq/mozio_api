@@ -13,7 +13,9 @@ pip install -r requirements.txt
 python manage.py runserver
 ```
 access the django admin and api on:
+
 http://localhost:8000/admin/
+
 http://localhost:8000/api/v1/
 
 ## CRUD URLs
@@ -21,11 +23,14 @@ http://localhost:8000/api/v1/
 GET, POST, PUT, DELETE are available on following urls:
 
 http://127.0.0.1:8000/api/v1/providers
+
 http://127.0.0.1:8000/api/v1/jeojsons
 
 ## Searching
 for searching a specific jeojson polygon of some latitude and longitude following url parameters can be used
+
 lat = X
+
 lng = Y
 
 for example:

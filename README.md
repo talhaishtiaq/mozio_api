@@ -1,4 +1,4 @@
-# mozio_api
+# mozio_api 
 Mozio API is a Python Django  API for CRUD opertiions of providers and polygon jeojsons
 
 ## Installation
@@ -60,6 +60,6 @@ Database is sqlite and defined in mozio_api/settings.py
 
 Tables are there in mozio_providers/models.py and can be changed and saved via migrations
 
-## Testing
+## Testing 
 
 Tests for CRUD and searching are their in  mozio_providers/tests.py

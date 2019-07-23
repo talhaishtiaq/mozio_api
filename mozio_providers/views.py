@@ -6,9 +6,6 @@ from .models import Provider, Jeojson
 from .serializers import ProviderSerializer, JeojsonSerializer
 from . import serializers
 
-from django.db.models.functions import Cast
-from django.db import models
-
 class ProviderViewset(viewsets.ModelViewSet):
     queryset = Provider.objects.all()
     serializer_class = serializers.ProviderSerializer

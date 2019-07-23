@@ -63,7 +63,3 @@ Tables are there in mozio_providers/models.py and can be changed and saved via m
 ## Testing 
 
 Tests for CRUD and searching are their in  mozio_providers/tests.py
-
-
-
-

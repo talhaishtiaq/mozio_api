@@ -62,6 +62,7 @@ class Tests(APITestCase):
 
     def test_filter_jeojson(self):
         response = self.client.post(self.url+'/providers/', {'name': 'provider1'})
+        #response = self.client.post(self.url+'/jeojsons/', {'name': 'jeojson1','provider_id':1, "jeojson": '"jeojson":[{"lat": 1009, "lng": 1010}, {"lat": 1011, "lng": 1012}]' })
         response = self.client.post(self.url+'/jeojsons/', {'name': 'jeojson1','provider_id':1, "jeojson": '[{"lat": 1009, "lng": 1010}, {"lat": 1011, "lng": 1012}]' })
         response = self.client.get(self.url+'/jeojsons/?lat=1011&lng=1012')
         response_data = json.loads(response.content)
@@ -69,3 +70,13 @@ class Tests(APITestCase):
         response = self.client.get(self.url+'/jeojsons/?lat=1009&lng=1012')
         response_data = json.loads(response.content)
         self.assertEqual(0, len(response_data))
+
+    def test_performance_jeojson(self):
+        for x in range(999):
+            response = self.client.post(self.url+'/providers/', {'name': 'provider1'})
+            #response = self.client.post(self.url+'/jeojsons/', {'name': 'jeojson1','provider_id':1, "jeojson": '"jeojson":[{"lat": 1009, "lng": 1010}, {"lat": 1011, "lng": 1012}]' })
+            response = self.client.post(self.url+'/jeojsons/', {'name': 'jeojson1','provider_id':1, "jeojson": '[{"lat": 1009, "lng": 1010}, {"lat": 1011, "lng": 1012}]' })
+
+        response = self.client.get(self.url+'/jeojsons/?lat=1011&lng=1012')
+        response_data = json.loads(response.content)
+        self.assertEqual(999, len(response_data))
